@@ -1,4 +1,4 @@
-- name: TODO_YOUR_ENVIRONMENT_NAME
+- name: virtostart-test
   gitops: true
   production: false
   servicePlan: B1
@@ -12,7 +12,7 @@
   storefront:
     enabled: false
     themes:
-      TODO_YOUR_STORE_ID: https://github.com/VirtoCommerce/vc-theme-b2b-vue/releases/download/2.5.0/vc-theme-b2b-vue-2.5.0.zip
+      test-store: https://github.com/VirtoCommerce/vc-theme-b2b-vue/releases/download/2.5.0/vc-theme-b2b-vue-2.5.0.zip
   ingress: {}
   customApps:
     app1:
@@ -20,8 +20,8 @@
     app2:
       enabled: false
   routes:
-  - host: TODO_YOUR_FRONTEND_HOSTNAME
-    root: TODO_YOUR_STORE_ID
+  - host: virtostart-test.govirto.com
+    root: test-store
     paths:
     - path: /xapi
       route: platform
