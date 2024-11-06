@@ -1,0 +1,46 @@
+- name: TODO_YOUR_ENVIRONMENT_NAME
+  gitops: true
+  production: false
+  servicePlan: B1
+  platform:
+    dbProvider: AzureSQL Database
+    imageRepository: virtopaasregistrymain.azurecr.io/virtostart/platform
+    sqlReplica: false
+    config:
+      APPINSIGHTS_INSTRUMENTATIONKEY: 26f3faa1-f3fb-4bd4-aff4-89d7241cf249
+      reboot: 3
+  storefront:
+    enabled: false
+    themes:
+      TODO_YOUR_STORE_ID: https://github.com/VirtoCommerce/vc-theme-b2b-vue/releases/download/2.5.0/vc-theme-b2b-vue-2.5.0.zip
+  ingress: {}
+  customApps:
+    app1:
+      enabled: false
+    app2:
+      enabled: false
+  routes:
+  - host: TODO_YOUR_FRONTEND_HOSTNAME
+    root: TODO_YOUR_STORE_ID
+    paths:
+    - path: /xapi
+      route: platform
+    - path: /files
+      route: platform
+    - path: /connect/token
+      route: platform
+    - path: /graphql
+      route: platform
+    - path: /revoke/token
+      route: platform
+    - path: /api/files
+      route: platform
+    - path: /externalsignin
+      route: platform
+    - path: /signin-oidc
+      route: platform
+    - path: /signin-google
+      route: platform
+  protectedParameters:
+   - platform.image.tag      
+  version: 3.219
